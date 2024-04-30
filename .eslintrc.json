@@ -14,6 +14,7 @@
         "caughtErrorsIgnorePattern": "^_"
       }
     ],
-    "no-console": "warn"
+    "no-console": "warn",
+    "@next/next/no-img-element": "off"
   }
 }

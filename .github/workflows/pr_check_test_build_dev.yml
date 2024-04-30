@@ -24,13 +24,11 @@ jobs:
       # テスト書くようになったら外す
       # - name: Run tests
       #   run: npm run test
-      - name: Create dot env file
-        shell: bash
-        run: |
-          echo "${{ vars.NEXT_PUBLIC_MICRO_CMS_API_KEY }}"
-          echo "NEXT_PUBLIC_MICRO_CMS_API_KEY=${{ secrets.NEXT_PUBLIC_MICRO_CMS_API_KEY }}" >> .env
-          echo "NEXT_PUBLIC_MICRO_CMS_SERVICE_DOMAIN=${{ secrets.NEXT_PUBLIC_MICRO_CMS_SERVICE_DOMAIN }}" >> .env
-          echo .env
+      # - name: Create dot env file
+      #   shell: bash
+      #   run: |
+      #     echo "NEXT_PUBLIC_MICRO_CMS_API_KEY=${{ secrets.NEXT_PUBLIC_MICRO_CMS_API_KEY }}" >> .env
+      #     echo "NEXT_PUBLIC_MICRO_CMS_SERVICE_DOMAIN=${{ secrets.NEXT_PUBLIC_MICRO_CMS_SERVICE_DOMAIN }}" >> .env
       - name: Build
         env:
           NEXT_PUBLIC_MICRO_CMS_API_KEY: ${{ secrets.NEXT_PUBLIC_MICRO_CMS_API_KEY }}

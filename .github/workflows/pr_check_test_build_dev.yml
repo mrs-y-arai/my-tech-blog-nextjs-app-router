@@ -5,9 +5,14 @@ on:
     branches:
       - develop
 
+# env:
+#   NEXT_PUBLIC_MICRO_CMS_API_KEY: ${{ secrets.NEXT_PUBLIC_MICRO_CMS_API_KEY }}
+#   NEXT_PUBLIC_MICRO_CMS_SERVICE_DOMAIN: ${{ secrets.NEXT_PUBLIC_MICRO_CMS_SERVICE_DOMAIN }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: develop
     steps:
       - uses: actions/checkout@v4
       - name: Set up Node.js
@@ -19,5 +24,13 @@ jobs:
       # テスト書くようになったら外す
       # - name: Run tests
       #   run: npm run test
+      # - name: Create dot env file
+      #   shell: bash
+      #   run: |
+      #     echo "NEXT_PUBLIC_MICRO_CMS_API_KEY=${{ secrets.NEXT_PUBLIC_MICRO_CMS_API_KEY }}" >> .env
+      #     echo "NEXT_PUBLIC_MICRO_CMS_SERVICE_DOMAIN=${{ secrets.NEXT_PUBLIC_MICRO_CMS_SERVICE_DOMAIN }}" >> .env
       - name: Build
+        env:
+          NEXT_PUBLIC_MICRO_CMS_API_KEY: ${{ secrets.NEXT_PUBLIC_MICRO_CMS_API_KEY }}
+          NEXT_PUBLIC_MICRO_CMS_SERVICE_DOMAIN: ${{ secrets.NEXT_PUBLIC_MICRO_CMS_SERVICE_DOMAIN }}
         run: npm run build

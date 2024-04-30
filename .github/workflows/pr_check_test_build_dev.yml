@@ -23,7 +23,12 @@ jobs:
       # テスト書くようになったら外す
       # - name: Run tests
       #   run: npm run test
-      - name: Setting environment variables
-        run: echo "NEXT_PUBLIC_MICRO_CMS_API_KEY=${NEXT_PUBLIC_MICRO_CMS_API_KEY}" >> .env && echo "NEXT_PUBLIC_MICRO_CMS_SERVICE_DOMAIN=${NEXT_PUBLIC_MICRO_CMS_SERVICE_DOMAIN}" >> .env
+      - name: Create dot env file
+        run: |
+          echo "${NEXT_PUBLIC_MICRO_CMS_API_KEY}"
+          echo "NEXT_PUBLIC_MICRO_CMS_API_KEY=${NEXT_PUBLIC_MICRO_CMS_API_KEY}" >> .env
+          echo "NEXT_PUBLIC_MICRO_CMS_SERVICE_DOMAIN=${NEXT_PUBLIC_MICRO_CMS_SERVICE_DOMAIN}" >> .env
+      # - name: Setting environment variables
+      #   run: echo "NEXT_PUBLIC_MICRO_CMS_API_KEY=${NEXT_PUBLIC_MICRO_CMS_API_KEY}" >> .env && echo "NEXT_PUBLIC_MICRO_CMS_SERVICE_DOMAIN=${NEXT_PUBLIC_MICRO_CMS_SERVICE_DOMAIN}" >> .env
       - name: Build
         run: npm run build

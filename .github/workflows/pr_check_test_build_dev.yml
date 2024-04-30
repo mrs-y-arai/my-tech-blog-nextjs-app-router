@@ -26,7 +26,7 @@ jobs:
       - name: Create dot env file
         shell: bash
         run: |
-          echo ${{ secrets.NEXT_PUBLIC_MICRO_CMS_API_KEY }}
+          echo "${{ secrets.NEXT_PUBLIC_MICRO_CMS_API_KEY }}"
           echo "NEXT_PUBLIC_MICRO_CMS_API_KEY=${{ secrets.NEXT_PUBLIC_MICRO_CMS_API_KEY }}" >> .env
           echo "NEXT_PUBLIC_MICRO_CMS_SERVICE_DOMAIN=${{ secrets.NEXT_PUBLIC_MICRO_CMS_SERVICE_DOMAIN }}" >> .env
       - name: Build

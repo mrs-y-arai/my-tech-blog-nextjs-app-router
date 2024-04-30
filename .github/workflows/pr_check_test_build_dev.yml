@@ -5,10 +5,6 @@ on:
     branches:
       - develop
 
-# env:
-#   NEXT_PUBLIC_MICRO_CMS_API_KEY: ${{ secrets.NEXT_PUBLIC_MICRO_CMS_API_KEY }}
-#   NEXT_PUBLIC_MICRO_CMS_SERVICE_DOMAIN: ${{ secrets.NEXT_PUBLIC_MICRO_CMS_SERVICE_DOMAIN }}
-
 jobs:
   build:
     runs-on: ubuntu-latest

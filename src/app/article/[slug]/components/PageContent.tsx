@@ -26,7 +26,7 @@ export default function PageContent({ article }: Props) {
           <CategoryLabel
             classes="mb-2 block"
             text={article.category.name}
-            href={`/category/${article.category.id}`}
+            id={article.category.id}
           />
           {article.tags && article.tags.length > 0 ? (
             <div className="flex flex-wrap items-center gap-x-2">
@@ -35,7 +35,7 @@ export default function PageContent({ article }: Props) {
                   key={tag.id}
                   props={{
                     text: tag.name,
-                    href: `/tag/${tag.id}`,
+                    id: tag.id,
                   }}
                 />
               ))}

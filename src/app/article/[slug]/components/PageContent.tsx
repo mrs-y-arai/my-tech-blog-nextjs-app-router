@@ -20,26 +20,27 @@ export default function PageContent({ article }: Props) {
       <article className="block w-full">
         <div className="mb-8">
           <h1 className="header-lg mb-3">{article.title}</h1>
-          <div className="mb-2 flex items-center gap-x-3">
-            <time className="text-lg text-strong-gray">
-              {format(article.publishedAt || article.createdAt, "yyyy.MM.dd")}
-            </time>
-            <CategoryLabel
-              text={article.category.name}
-              href={`/category/${article.category.id}`}
-            />
-          </div>
-          {article.tags && article.tags.length > 0
-            ? article.tags.map((tag) => (
+          <time className="mb-2 block text-lg text-strong-gray">
+            {format(article.publishedAt || article.createdAt, "yyyy.MM.dd")}
+          </time>
+          <CategoryLabel
+            classes="mb-2 block"
+            text={article.category.name}
+            id={article.category.id}
+          />
+          {article.tags && article.tags.length > 0 ? (
+            <div className="flex flex-wrap items-center gap-x-2">
+              {article.tags.map((tag) => (
                 <Tag
                   key={tag.id}
                   props={{
                     text: tag.name,
-                    href: `/tag/${tag.id}`,
+                    id: tag.id,
                   }}
                 />
-              ))
-            : null}
+              ))}
+            </div>
+          ) : null}
         </div>
         <div className="article-body">{parse(article.content)}</div>
       </article>

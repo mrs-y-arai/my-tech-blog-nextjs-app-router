@@ -24,7 +24,7 @@ export default async function PageContent({ currentPage }: Props) {
           range: 2,
           perPage: PER_PAGE,
           totalCount: articles.totalCount,
-          path: "/article",
+          path: "/page",
         }}
       />
     </>

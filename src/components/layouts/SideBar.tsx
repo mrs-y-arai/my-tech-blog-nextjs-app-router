@@ -1,6 +1,9 @@
 import CategoryLabel from "~/components/ui/categoryLabel";
+import { CategoryList } from "~/models/Category";
+import { TagList } from "~/models/Tag";
 import Tag from "~/components/ui/tag";
 import { cn } from "~/libs/utils";
+import { getCategoryList, getTagList } from "~/utils";
 
 type Props = {
   props: {
@@ -8,7 +11,10 @@ type Props = {
   };
 };
 
-export default function SideBar({ props }: Props) {
+export default async function SideBar({ props }: Props) {
+  const categoryList: CategoryList = await getCategoryList();
+  const tagList: TagList = await getTagList();
+
   return (
     <>
       <aside
@@ -22,20 +28,38 @@ export default function SideBar({ props }: Props) {
           <p className="font-bold">Tech Blogger</p>
           <p>フロントエンドエンジニアです。</p>
         </div>
-        <div>
-          <h2 className="header-sm mb-2">Categories</h2>
-          <ul className="space-y-2">
-            <li>
-              <CategoryLabel href="#" text="JavaScript" />
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h2 className="header-sm mb-2">Tags</h2>
-          <div className="flex flex-wrap gap-2">
-            <Tag props={{ href: "#", text: "pickup" }} />
-          </div>
-        </div>
+        {categoryList.contents.length > 0 ? (
+          <>
+            <div>
+              <h2 className="header-sm mb-2">Categories</h2>
+              <div className="flex flex-wrap gap-2">
+                {categoryList.contents.map((category) => {
+                  return (
+                    <CategoryLabel
+                      key={category.id}
+                      id={category.id}
+                      text={category.name}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+          </>
+        ) : null}
+        {tagList.contents.length > 0 ? (
+          <>
+            <div>
+              <h2 className="header-sm mb-2">Tags</h2>
+              <div className="flex flex-wrap gap-2">
+                {tagList.contents.map((tag) => {
+                  return (
+                    <Tag key={tag.id} props={{ id: tag.id, text: tag.name }} />
+                  );
+                })}
+              </div>
+            </div>
+          </>
+        ) : null}
       </aside>
     </>
   );

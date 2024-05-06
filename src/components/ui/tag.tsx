@@ -2,7 +2,7 @@ import Link from "next/link";
 
 type Props = {
   props: {
-    href: string;
+    id: string;
     text: string;
   };
 };
@@ -10,7 +10,7 @@ type Props = {
 export default function Tag({ props }: Props) {
   return (
     <>
-      <Link className="text-primary" href={props.href}>
+      <Link className="text-primary" href={`/tag/${props.id}/1`}>
         #{props.text}
       </Link>
     </>

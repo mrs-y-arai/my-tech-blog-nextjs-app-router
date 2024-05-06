@@ -8,16 +8,16 @@ export default function Header() {
           <p className="text-lg font-bold text-white">YUU BLOG</p>
         </Link>
         <nav className="ml-8 hidden space-x-4 md:flex">
-          <Link className="text-white" href="#">
+          <Link className="text-white" href="/">
             Home
           </Link>
-          <Link className="text-white" href="#">
+          <Link className="text-white" href="/page/1">
             Articles
           </Link>
-          <Link className="text-white" href="#">
+          <Link className="text-white" href="/about">
             About
           </Link>
-          <Link className="text-white" href="#">
+          <Link className="text-white" href="/contact">
             Contact
           </Link>
         </nav>

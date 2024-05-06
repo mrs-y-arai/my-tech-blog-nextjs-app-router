@@ -4,6 +4,8 @@ import {
   ArticleList as ArticleListType,
   Article as ArticleType,
 } from "../models/Article";
+import { CategoryList as CategoryListType } from "../models/Category";
+import { TagList as TagListType } from "../models/Tag";
 
 /**
  * Get article list
@@ -35,4 +37,32 @@ export const getArticleDetail = async (
   const article: ArticleType = data;
 
   return article;
+};
+
+/**
+ * Get Category list
+ */
+export const getCategoryList = async (queries?: MicroCMSQueries) => {
+  const data = await client.get({
+    endpoint: "categories",
+    queries,
+  });
+
+  const categories: CategoryListType = data;
+
+  return categories;
+};
+
+/**
+ * Get Tag list
+ */
+export const getTagList = async (queries?: MicroCMSQueries) => {
+  const data = await client.get({
+    endpoint: "tags",
+    queries,
+  });
+
+  const tags: TagListType = data;
+
+  return tags;
 };

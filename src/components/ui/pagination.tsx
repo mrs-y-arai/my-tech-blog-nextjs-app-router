@@ -48,7 +48,7 @@ function PaginationContent({ props }: PaginationContentProps) {
         return (
           <Link
             key={index}
-            href={`${props.path}?page=${index}`}
+            href={`${props.path}/${index}`}
             className={cn(
               "flex h-10 w-10 items-center justify-center rounded-md text-foreground duration-300 hover:bg-light-gray",
               { "bg-light-gray": index === props.currentPage },
@@ -82,7 +82,7 @@ export default function Pagination({ props, classes }: ComponentProps) {
           </>
         ) : (
           <Link
-            href={`${props.path}?page=${props.currentPage - 1}`}
+            href={`${props.path}/${props.currentPage - 1}`}
             aria-label="Go to previous page"
             className={cn(
               "flex h-10 w-10 items-center justify-center rounded-md text-foreground duration-300 hover:bg-light-gray",
@@ -111,7 +111,7 @@ export default function Pagination({ props, classes }: ComponentProps) {
           </>
         ) : (
           <Link
-            href={`${props.path}?page=${props.currentPage + 1}`}
+            href={`${props.path}/${props.currentPage + 1}`}
             aria-label="Go to next page"
             className={cn(
               "flex h-10 w-10 items-center justify-center rounded-md text-foreground duration-300 hover:bg-light-gray",

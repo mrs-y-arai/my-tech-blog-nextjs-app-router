@@ -24,7 +24,7 @@ export default async function Home() {
           props={{
             currentPage: 1,
             range: 2,
-            perPage: 9,
+            perPage: PER_PAGE,
             totalCount: articles.totalCount,
             path: "/article",
           }}

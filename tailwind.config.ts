@@ -49,6 +49,7 @@ const config = {
         gray: "hsl(var(--gray))",
         "strong-gray": "hsl(var(--strong-gray))",
         "light-gray": "hsl(var(--light-gray))",
+        red: "hsl(var(--red))",
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -7,6 +7,7 @@ import Tag from "~/components/ui/tag";
 import { Button } from "~/components/ui/button";
 import { useRouter } from "next/navigation";
 import parse from "html-react-parser";
+import Toc from "~/components/ui/tableOfContents";
 
 type Props = {
   article: ArticleType;
@@ -42,10 +43,11 @@ export default function PageContent({ article }: Props) {
             </div>
           ) : null}
         </div>
+        <Toc className="mb-8" />
         <div className="article-body">{parse(article.content)}</div>
       </article>
       <Button
-        onClick={() => router.push("/article")}
+        onClick={() => router.push("/page/1")}
         className="mx-auto mt-10 block"
         size="lg"
         variant="primary"

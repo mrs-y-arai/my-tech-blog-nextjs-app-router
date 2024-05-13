@@ -8,7 +8,7 @@ type Props = {
 export default function ArticleList({ articles }: Props) {
   return (
     <>
-      <ul className="grid grid-cols-3 gap-7">
+      <ul className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-8">
         {articles.contents.map((article) => {
           return (
             <li key={article.id}>

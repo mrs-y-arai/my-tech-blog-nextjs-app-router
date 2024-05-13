@@ -16,7 +16,7 @@ export default function OneColumnWrapper({
   return (
     <>
       <PageHeader pageTitle={pageTitle} description={description} />
-      <div className="mx-auto min-h-[100vh] max-w-[1300px] p-8">{children}</div>
+      <div className="mx-auto min-h-[40vh] max-w-[1300px] p-8">{children}</div>
     </>
   );
 }

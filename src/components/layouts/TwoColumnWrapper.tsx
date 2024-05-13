@@ -20,7 +20,7 @@ export default function TwoColumnWrapper({
       {needPageHeader && pageTitle && (
         <PageHeader pageTitle={pageTitle} description={description} />
       )}
-      <div className="mx-auto flex max-w-[1300px] flex-col items-start gap-x-6 p-8 py-14 lg:flex-row">
+      <div className="mx-auto flex min-h-[40vh] max-w-[1300px] flex-col items-start gap-x-6 p-8 py-14 lg:flex-row">
         <div className="mb-8 flex-grow lg:mb-0">{children}</div>
         <SideBar
           props={{

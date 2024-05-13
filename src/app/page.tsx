@@ -17,7 +17,7 @@ export default async function Home() {
       description="Java Script・Type Script初心者向けブログ"
     >
       <div className="block w-full text-center">
-        <h2 className="header-md mb-5">最新記事一覧</h2>
+        <h2 className="mb-5 text-2xl font-bold">最新記事一覧</h2>
         <ArticleList articles={articles} />
         <Pagination
           classes="mt-10"
@@ -26,7 +26,7 @@ export default async function Home() {
             range: 2,
             perPage: PER_PAGE,
             totalCount: articles.totalCount,
-            path: "/article",
+            path: "/page",
           }}
         />
       </div>

@@ -21,7 +21,7 @@ export default function Page({ params }: { params: { pageId: string } }) {
       description="YUU BLOGの記事一覧ページ"
     >
       <div className="block w-full text-center">
-        <h2 className="header-md mb-5">記事一覧</h2>
+        <h2 className="mb-5 text-2xl font-bold">記事一覧</h2>
         <PageContent currentPage={currentPage} />
       </div>
     </TwoColumnWrapper>

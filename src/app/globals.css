@@ -38,6 +38,7 @@
     --gray: 220 14% 80%;
     --strong-gray: 220 14% 40%;
     --light-gray: 220 14% 90%;
+    --red: 0 84% 60%;
   }
 
   .dark {
@@ -68,6 +69,8 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+
+    --red: 0 62.8% 30.6%;
   }
 
   * {
@@ -86,19 +89,19 @@
 
 @layer utilities {
   .header-lg {
-    @apply text-4xl font-bold leading-relaxed;
+    @apply text-3xl font-bold leading-relaxed md:text-4xl;
   }
 
   .header-md {
-    @apply text-2xl font-bold leading-relaxed;
+    @apply text-xl font-bold leading-relaxed md:text-2xl;
   }
 
   .header-sm {
-    @apply text-xl font-bold leading-relaxed;
+    @apply text-lg font-bold leading-relaxed md:text-xl;
   }
 
   .header-xs {
-    @apply text-lg leading-relaxed;
+    @apply text-base leading-relaxed md:text-lg;
   }
 
   .link {
@@ -131,5 +134,13 @@
 
   .article-body u {
     @apply no-underline;
+  }
+
+  .toc ol {
+    @apply list-decimal pl-6 text-base;
+  }
+
+  .toc li:not(:last-of-type) {
+    @apply mb-1;
   }
 }

@@ -18,7 +18,7 @@ export default function Footer() {
             プライバシーポリシー
           </Link>
           <Link className="text-xs text-white hover:underline" href="/term">
-            利用規約
+            免責事項
           </Link>
         </div>
         <small className="text-white">&copy; {copyRightYear()} Yuki Arai</small>

@@ -3,6 +3,22 @@ import TwitterX from "~/components/icons/TwitterX";
 import Zenn from "~/components/icons/Zenn";
 import Github from "~/components/icons/Github";
 import Link from "next/link";
+import { SITE_NAME } from "~/constants";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "私について",
+  description: `私は、プログラミング歴4年のフロントエンドエンジニアです。主に、Java Script / Type
+            Scriptがメインスキルのエンジニアです。Vue.js / Nuxt.js / React / Next.jsが好きです。今までの開発実績は50件以上。`,
+  openGraph: {
+    title: "私について",
+    description: `${SITE_NAME}の免責事項について記載しています。`,
+    url: `${process.env.NEXT_PUBLIC_SITE_BASE_URL}/about`,
+  },
+  twitter: {
+    title: "私について",
+  },
+};
 
 export default function About() {
   return (

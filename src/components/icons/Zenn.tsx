@@ -4,8 +4,8 @@ export default function Zenn(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width=""
-      height=""
+      width="28"
+      height="27"
       viewBox="0 0 24 24"
       {...props}
     >

@@ -56,7 +56,7 @@ export default function RootLayout({
     <html lang="ja">
       <body className={`${inter.className} bg-white`}>
         <Header />
-        <main className="min-h-[100vh] pt-12">{children}</main>
+        <main className="min-h-[100vh] w-screen pt-12">{children}</main>
         <Footer />
       </body>
     </html>

@@ -8,8 +8,6 @@ export async function generateStaticParams() {
     tagId: tag.id,
   }));
 
-  console.log("tagIds", tagIds);
-
   return tagIds;
 }
 

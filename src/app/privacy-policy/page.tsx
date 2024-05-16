@@ -1,4 +1,19 @@
 import OneColumnWrapper from "~/components/layouts/OneColumnWrapper";
+import type { Metadata } from "next";
+import { SITE_NAME } from "~/constants";
+
+export const metadata: Metadata = {
+  title: "プライバシーポリシー",
+  description: `${SITE_NAME}のプライバシーポリシーについて記載しています。`,
+  openGraph: {
+    title: "プライバシーポリシー",
+    description: `${SITE_NAME}のプライバシーポリシーについて記載しています。`,
+    url: `${process.env.NEXT_PUBLIC_SITE_BASE_URL}/privacy-policy`,
+  },
+  twitter: {
+    title: "プライバシーポリシー",
+  },
+};
 
 export default function PrivacyPolicy() {
   return (
@@ -7,8 +22,10 @@ export default function PrivacyPolicy() {
         <section className="mb-5">
           <h2 className="header-md mb-3">当ブログの運営者情報</h2>
           <p className="mb-2">運営者: 荒井 勇己</p>
-          <p className="mb-2">ブログ名: YUUBLOG</p>
-          <p className="mb-2">ブログURL: </p>
+          <p className="mb-2">ブログ名: {SITE_NAME}</p>
+          <p className="mb-2">
+            ブログURL: {process.env.NEXT_PUBLIC_SITE_BASE_URL}
+          </p>
           <p>連絡先: メールアドレスを入力</p>
         </section>
         <section className="mb-5">

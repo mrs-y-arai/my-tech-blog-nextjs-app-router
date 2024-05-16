@@ -1,22 +1,28 @@
+"use client";
+
 import Link from "next/link";
-import {
-  SheetTrigger,
-  SheetContent,
-  Sheet,
-  SheetClose,
-} from "~/components/ui/sheet";
 import { Button } from "~/components/ui/button";
 import { Menu } from "~/components/icons/Menu";
 import TwitterX from "~/components/icons/TwitterX";
 import Zenn from "~/components/icons/Zenn";
 import Github from "~/components/icons/Github";
+import { X } from "lucide-react";
+import { useState } from "react";
+import { cn } from "~/libs/utils";
+import { SITE_NAME } from "~/constants";
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleMenu = () => {
+    setIsOpen((prev) => !prev);
+  };
+  const closeMenu = () => setIsOpen(false);
+
   return (
     <>
       <header className="fixed left-0 top-0 z-40 flex w-screen items-center justify-between bg-background px-6 py-4 text-white md:px-10">
         <Link className="flex items-center space-x-2" href="/">
-          <p className="text-lg font-bold text-white">YUU BLOG</p>
+          <p className="text-lg font-bold text-white">{SITE_NAME}</p>
         </Link>
         {/* PC */}
         <nav className="ml-8 hidden space-x-4 md:flex">
@@ -34,37 +40,58 @@ export default function Header() {
           </Link>
         </nav>
         {/* SP */}
-        <Sheet>
-          <SheetTrigger className="block md:hidden" asChild>
-            <Button size="icon" variant="ghost">
-              <Menu className="h-8 w-8" />
-              <span className="sr-only">Toggle navigation menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent
-            className="block w-64 bg-strong-gray text-white md:hidden"
-            side="right"
+        <div className="block md:hidden">
+          <Button
+            aria-controls="navigation"
+            aria-expanded={isOpen}
+            aria-label={isOpen ? "メニューを閉じる" : "メニューを開く"}
+            onClick={toggleMenu}
+            size="icon"
+            variant="ghost"
           >
+            <Menu className="h-8 w-8" />
+            <span className="sr-only">Toggle navigation menu</span>
+          </Button>
+          <div
+            onClick={closeMenu}
+            className={cn(
+              "fixed left-0 top-0 h-screen w-screen bg-black transition-opacity duration-500",
+              isOpen
+                ? "pointer-events-auto opacity-70"
+                : "pointer-events-none opacity-0",
+            )}
+          ></div>
+          {/* TODO: 閉じている時、フォーカスが当たらないようにしたい */}
+          <div
+            className={cn(
+              "fixed right-0 top-0 block h-screen w-64 transform bg-strong-gray p-4 pt-10 text-white transition-all duration-500",
+              isOpen ? "visible translate-x-0" : "invisible translate-x-full",
+            )}
+          >
+            <Button
+              className="absolute right-2 top-2"
+              size="icon"
+              variant="ghost"
+              onClick={closeMenu}
+              aria-controls="navigation"
+              aria-expanded={isOpen}
+              aria-label="メニューを閉じる"
+            >
+              <X className="h-8 w-8" />
+              <span className="sr-only">Close navigation menu</span>
+            </Button>
             <div className="mb-6 flex flex-col gap-4">
-              <Link className="text-white" href="/">
-                <SheetClose className="block h-full w-full text-start">
-                  Home
-                </SheetClose>
+              <Link onClick={closeMenu} className="text-white" href="/">
+                Home
               </Link>
-              <Link className="text-white" href="/page/1">
-                <SheetClose className="block h-full w-full text-start">
-                  Articles
-                </SheetClose>
+              <Link onClick={closeMenu} className="text-white" href="/page/1">
+                Articles
               </Link>
-              <Link className="text-white" href="/about">
-                <SheetClose className="block h-full w-full text-start">
-                  About
-                </SheetClose>
+              <Link onClick={closeMenu} className="text-white" href="/about">
+                About
               </Link>
-              <Link className="text-white" href="/contact">
-                <SheetClose className="block h-full w-full text-start">
-                  Contact
-                </SheetClose>
+              <Link onClick={closeMenu} className="text-white" href="/contact">
+                Contact
               </Link>
             </div>
             <div className="flex items-center justify-start gap-x-3">
@@ -93,8 +120,8 @@ export default function Header() {
                 <Zenn />
               </Link>
             </div>
-          </SheetContent>
-        </Sheet>
+          </div>
+        </div>
       </header>
     </>
   );

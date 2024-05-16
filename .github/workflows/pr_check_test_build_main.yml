@@ -1,0 +1,27 @@
+name: pr_check_test_build_dev
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: develop
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20.x"
+      - name: Install dependencies
+        run: npm ci
+      # テスト書くようになったら外す
+      # - name: Run tests
+      #   run: npm run test
+      - name: Build
+        env:
+          NEXT_PUBLIC_MICRO_CMS_API_KEY: ${{ secrets.NEXT_PUBLIC_MICRO_CMS_API_KEY }}
+          NEXT_PUBLIC_MICRO_CMS_SERVICE_DOMAIN: ${{ secrets.NEXT_PUBLIC_MICRO_CMS_SERVICE_DOMAIN }}
+        run: npm run build

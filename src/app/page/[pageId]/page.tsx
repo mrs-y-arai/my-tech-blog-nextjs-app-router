@@ -20,12 +20,23 @@ export async function generateMetadata({
   params: { pageId: string };
 }): Promise<Metadata> {
   return {
-    title: `${SITE_NAME}記事一覧 ${params.pageId}ページ目`,
+    title: `記事一覧 ${params.pageId}ページ目`,
     description: `記事一覧ページです。主に、Java ScriptとTypescriptに関する記事を発信しています。`,
     openGraph: {
+      type: "website",
+      locale: "ja_JP",
+      url: `${process.env.NEXT_PUBLIC_SITE_BASE_URL}/page/${params.pageId}`,
       title: `${SITE_NAME}記事一覧 ${params.pageId}ページ目`,
       description: `記事一覧ページです。主に、Java ScriptとTypescriptに関する記事を発信しています。`,
-      url: `${process.env.NEXT_PUBLIC_SITE_BASE_URL}/page/${params.pageId}`,
+      siteName: SITE_NAME,
+      images: [
+        {
+          url: "/ogp.png",
+          width: 1200,
+          height: 630,
+          alt: SITE_NAME,
+        },
+      ],
     },
     twitter: {
       title: `記事一覧 ${params.pageId}ページ目`,
@@ -34,7 +45,7 @@ export async function generateMetadata({
 }
 
 export default function Page({ params }: { params: { pageId: string } }) {
-  const currentPage = Number(params) ? Number(params) : 1;
+  const currentPage = Number(params.pageId) ? Number(params.pageId) : 1;
 
   return (
     <TwoColumnWrapper

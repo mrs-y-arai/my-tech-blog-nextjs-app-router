@@ -3,6 +3,7 @@ import { ArticleList as ArticleListType } from "~/models/Article";
 import PageContent from "./components/PageContent";
 import { getArticleDetail, getArticleList } from "~/utils";
 import type { Metadata } from "next";
+import { SITE_NAME } from "~/constants";
 
 export async function generateStaticParams() {
   const articles: ArticleListType = await getArticleList();
@@ -23,16 +24,19 @@ export async function generateMetadata({
     title: article.title,
     description: article.description,
     openGraph: {
+      type: "website",
+      locale: "ja_JP",
+      url: `${process.env.NEXT_PUBLIC_SITE_BASE_URL}/article/${article.id}`,
       title: article.title,
       description: article.description,
-      url: `${process.env.NEXT_PUBLIC_SITE_BASE_URL}/article/${article.id}`,
-      // images: [
-      //   {
-      //     url: article.image?.url,
-      //     width: article.image?.width,
-      //     height: article.image?.height,
-      //   },
-      // ]
+      images: [
+        {
+          url: article.image?.url ?? "/ogp.png",
+          width: article.image?.width,
+          height: article.image?.height,
+          alt: SITE_NAME,
+        },
+      ],
     },
     twitter: {
       title: article.title,

@@ -11,9 +11,20 @@ export const metadata: Metadata = {
   description: `私は、プログラミング歴4年のフロントエンドエンジニアです。主に、Java Script / Type
             Scriptがメインスキルのエンジニアです。Vue.js / Nuxt.js / React / Next.jsが好きです。今までの開発実績は50件以上。`,
   openGraph: {
+    type: "website",
+    locale: "ja_JP",
+    url: `${process.env.NEXT_PUBLIC_SITE_BASE_URL}/about`,
     title: "私について",
     description: `${SITE_NAME}の免責事項について記載しています。`,
-    url: `${process.env.NEXT_PUBLIC_SITE_BASE_URL}/about`,
+    siteName: SITE_NAME,
+    images: [
+      {
+        url: "/ogp.png",
+        width: 1200,
+        height: 630,
+        alt: SITE_NAME,
+      },
+    ],
   },
   twitter: {
     title: "私について",

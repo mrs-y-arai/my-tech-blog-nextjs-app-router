@@ -6,9 +6,19 @@ export const metadata: Metadata = {
   title: "プライバシーポリシー",
   description: `${SITE_NAME}のプライバシーポリシーについて記載しています。`,
   openGraph: {
+    type: "website",
+    locale: "ja_JP",
+    url: `${process.env.NEXT_PUBLIC_SITE_BASE_URL}/privacy-policy`,
     title: "プライバシーポリシー",
     description: `${SITE_NAME}のプライバシーポリシーについて記載しています。`,
-    url: `${process.env.NEXT_PUBLIC_SITE_BASE_URL}/privacy-policy`,
+    images: [
+      {
+        url: "/ogp.png",
+        width: 1200,
+        height: 630,
+        alt: SITE_NAME,
+      },
+    ],
   },
   twitter: {
     title: "プライバシーポリシー",

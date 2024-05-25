@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     email: false,
   },
   robots: process.env.IS_NOINDEX === "true" ? "noindex,nofollow" : undefined,
+  alternates: {
+    canonical: process.env.NEXT_PUBLIC_SITE_BASE_URL,
+  },
   openGraph: {
     type: "website",
     locale: "ja_JP",
@@ -26,7 +29,7 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     images: [
       {
-        url: "https://yuu-blog.vercel.app/ogp.png",
+        url: "/ogp.png",
         width: 1200,
         height: 630,
         alt: SITE_NAME,

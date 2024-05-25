@@ -136,6 +136,10 @@
     @apply no-underline;
   }
 
+  .article-body blockquote {
+    @apply my-3 my-4 border-l-4 border-gray p-3 pl-6;
+  }
+
   .toc ol {
     @apply list-decimal pl-6 text-base;
   }

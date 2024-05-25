@@ -35,9 +35,20 @@ export async function generateMetadata({
     title: `${tag.name}記事一覧 ${params.pageId}ページ目`,
     description: `${tag.name}に関する記事一覧ページです。主に、Java ScriptとTypescriptに関する記事を発信しています。`,
     openGraph: {
+      type: "website",
+      locale: "ja_JP",
+      url: `${process.env.NEXT_PUBLIC_SITE_BASE_URL}/tag/${params.tagId}/${params.pageId}`,
       title: `${tag.name}記事一覧 ${params.pageId}ページ目`,
       description: `${tag.name}に関する記事一覧ページです。主に、Java ScriptとTypescriptに関する記事を発信しています。`,
-      url: `${process.env.NEXT_PUBLIC_SITE_BASE_URL}/tag/${params.tagId}/${params.pageId}`,
+      siteName: SITE_NAME,
+      images: [
+        {
+          url: "/ogp.png",
+          width: 1200,
+          height: 630,
+          alt: SITE_NAME,
+        },
+      ],
     },
     twitter: {
       title: `${tag.name}記事一覧 ${params.pageId}ページ目`,

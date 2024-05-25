@@ -7,9 +7,20 @@ export const metadata: Metadata = {
   title: "お問い合わせ",
   description: `${SITE_NAME}のお問い合わせページです。`,
   openGraph: {
+    type: "website",
+    locale: "ja_JP",
+    url: `${process.env.NEXT_PUBLIC_SITE_BASE_URL}/contact`,
     title: "お問い合わせ",
     description: `${SITE_NAME}のお問い合わせページです。`,
-    url: `${process.env.NEXT_PUBLIC_SITE_BASE_URL}/contact`,
+    siteName: SITE_NAME,
+    images: [
+      {
+        url: "/ogp.png",
+        width: 1200,
+        height: 630,
+        alt: SITE_NAME,
+      },
+    ],
   },
   twitter: {
     title: "お問い合わせ",
